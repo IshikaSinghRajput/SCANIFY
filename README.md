@@ -112,14 +112,20 @@ This project can be deployed easily using:
 
 ## 📸 Screenshots
 
+### HOME
+![Home](GLIMPSE/Home.png)
+
 ### Dashboard
 ![Dashboard](GLIMPSE/DashBoard.png)
 
 ### Analytics
-![Analytics](assets/screenshots/analytics.png)
+![Analytics](GLIMPSE/Analytics.png)
 
 ### Insights
-![Insights](assets/screenshots/insights.png)
+![Insights](GLIMPSE/Insights.png)
+
+### Notification
+![Notification](GLIMPSE/Notification.png)
 
 ---
 

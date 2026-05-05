@@ -112,7 +112,14 @@ This project can be deployed easily using:
 
 ## 📸 Screenshots
 
-(Add screenshots of your Dashboard, Analytics, and Insights pages here)
+### Dashboard
+![Dashboard](assets/screenshots/dashboard.png)
+
+### Analytics
+![Analytics](assets/screenshots/analytics.png)
+
+### Insights
+![Insights](assets/screenshots/insights.png)
 
 ---
 

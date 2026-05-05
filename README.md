@@ -95,19 +95,6 @@ Scanify/
 git clone https://github.com/your-username/scanify.git
 ```
 
-2. Open the project folder
-
-3. Run using Live Server (recommended)
-
----
-
-## 🌐 Deployment
-
-This project can be deployed easily using:
-
-* Netlify
-* Vercel
-
 ---
 
 ## 📸 Screenshots

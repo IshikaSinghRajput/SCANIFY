@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #020617;
+    color: #39FF14;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-bottom: 1px solid #39FF14;
+}
+
+.navbar button {
+
+    height: fit-content !important; 
+    align-self: center; 
+    padding: 9px 15px !important; 
+    background-color: #22c55e;
+    color: #0b0f14;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    font-size: 15px; 
+    cursor: pointer;
+}
+
+.navbar button:hover {
+    background-color: #39FF14; /* Brighter neon on hover */
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center; /* Vertical centering */
+    gap: 10px;           /* Space between logo and text */
+    padding: 20px;       /* Match your sidebar's current padding */
+}
+
+.brand-logo {
+    width: 40px;         /* Adjust based on your logo design */
+    height: 40px;
+    object-fit: contain;
+}
+
+.sidebar-brand h2 {
+    margin: 0;           /* Remove default heading margin for perfect alignment */
+    font-size: 24px;
+    color: #22c55e;      /* Your primary green */
+}
+
+/* Heading */
+.heading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #0f172a;
+    padding: 20px;
+    border-radius: 12px;
+    width: 230px;
+    border: 1px solid #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #39FF14;
+}
+
+.card img {
+    width: 60px;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.card p {
+    margin: 0;
+    color: #9ca3af;
+}
+
+/* Charts */
+/* Update these in your analytics.css */
+.charts {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center them vertically */
+    gap: 50px;           /* Reduce the gap so they fit side-by-side */
+    flex-wrap: wrap;
+}
+
+canvas {
+    /* Remove the fixed 350x350 square and use this instead */
+    max-width: 400px !important; 
+    max-height: 400px !important;
+    width: 100% !important;
+    height: auto !important;
+}
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #6b7280;
+}

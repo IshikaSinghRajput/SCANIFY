@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanify</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- BACKGROUND -->
+    <div class="bg"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <span class="logo-text">Scanify</span>
+            <img src="../assets\logo.png" alt="Scanify Logo">
+        </div>
+        <div class="nav-buttons">
+            <a href="../User/login.html" class="btn-outline">Login</a>
+            <a href="../User/signup.html" class="btn-primary">Signup</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero container">
+
+        <div class="hero-left">
+            <h1>Never Let Your <br> Products Expire</h1>
+
+            <p>
+                Track expiry dates, reduce waste, and stay in control with a smart system designed for modern living.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="window.location.href='../User/signup.html'">Get Started</button>
+                <button class="btn-outline" onclick="window.location.href='../User/login.html'">Login</button>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="image-wrapper">
+                <img src="../assets/svg.png" alt="Scanify UI">
+            </div>
+        </div>
+
+
+    </section>
+
+    <div class="stats">
+        <div>
+            <h2>500+</h2>
+            <p>Products Tracked</p>
+        </div>
+        <div>
+            <h2>120+</h2>
+            <p>Active Users</p>
+        </div>
+        <div>
+            <h2>98%</h2>
+            <p>Waste Reduced</p>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section class="features container">
+
+        <div class="card">
+            <h3>⚡ Smart Tracking</h3>
+            <p>Manage all your products in one place effortlessly.</p>
+        </div>
+
+        <div class="card">
+            <h3>⏰ Expiry Alerts</h3>
+            <p>Stay ahead with timely reminders.</p>
+        </div>
+
+        <div class="card">
+            <h3>📊 Analytics</h3>
+            <p>Understand usage patterns clearly.</p>
+        </div>
+
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="intro-container">
+
+        <p class="intro-tag">WHAT WE DO</p>
+
+        <p class="intro-desc">
+            Scanify helps you track product expiry dates, organize your inventory,
+            and receive timely alerts so nothing goes to waste. Whether it's for
+            home, shops, or warehouses, it keeps everything under control in one place.
+        </p>
+
+    </section>
+
+    <section class="showcase container">
+
+        <!-- LEFT SIDE (GLASS PANEL) -->
+        <div class="showcase-left hidden">
+            <div class="glass-panel">
+                <h3>Inventory Overview</h3>
+
+                <div class="item">
+                    <span>Milk</span>
+                    <span class="tag yellow">2 days</span>
+                </div>
+
+                <div class="item">
+                    <span>Bread</span>
+                    <span class="tag red">Expired</span>
+                </div>
+
+                <div class="item">
+                    <span>Eggs</span>
+                    <span class="tag green">5 days</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE (EMPTY / TEXT OPTIONAL) -->
+        <div class="showcase-right hidden">
+
+            <h3 class="showcase-heading">
+                Real-time Product Monitoring
+            </h3>
+
+            <p class="showcase-text">
+                Keep track of expiry dates with precision. Scanify helps you stay ahead
+                by organizing your products and notifying you before it's too late.
+            </p>
+
+            <div class="showcase-points">
+                <div>✔ Smart expiry detection</div>
+                <div>✔ Clean inventory tracking</div>
+                <div>✔ Instant notifications</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- STEPS -->
+    <section class="steps">
+        <div>Add Product</div>
+        <div>Track Expiry</div>
+        <div>Get Alerts</div>
+    </section>
+
+    <footer>
+        Scanify © 2026
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

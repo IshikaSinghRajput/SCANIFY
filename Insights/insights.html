@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Scanify Insights</title>
+    <link rel="stylesheet" href="insights.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="sidebar-brand">
+            <h2>Scanify</h2>
+            <img src="../assets/logo.png" alt="Scanify Logo" class="brand-logo">
+
+        </div>
+        <button class="back-btn" onclick="goBack()">Back</button>
+    </div>
+
+    <h1 class="heading">Smart Insights</h1>
+    <div class="insights-header">
+        <h1 id="welcomeGreeting" class="neon-greeting"></h1>
+        <p class="sub-text">Here's a deep dive into your product savings and waste analytics.</p>
+    </div>
+
+    <div class="insights-container">
+
+        <div class="insight-card warning">
+            <h3>⚠️ Expiring Soon</h3>
+            <p id="soonText">Loading...</p>
+        </div>
+
+        <div class="insight-card danger">
+            <h3>🚨 Expired</h3>
+            <p id="expiredText">Loading...</p>
+        </div>
+
+        <div class="insight-card suggestion">
+            <h3>💡 Use First</h3>
+            <p id="suggestText">Loading...</p>
+        </div>
+
+        <div class="insight-card waste" onclick="openWasteModal()">
+            <h3>📉 Waste Report</h3>
+            <p id="wasteText">Loading...</p>
+        </div>
+
+    </div>
+
+    <!-- Waste Details Modal -->
+    <div id="wasteModal" class="modal hidden">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeWasteModal()">✖</span>
+
+            <h2>📉 Waste Details</h2>
+
+            <p id="aiMessage"></p>
+
+            <ul id="wasteList"></ul>
+
+        </div>
+    </div>
+
+    <script src="insights.js"></script>
+</body>
+
+</html>

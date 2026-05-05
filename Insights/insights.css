@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #020617;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-bottom: 1px solid #22c55e;
+}
+
+.logo {
+    font-size: 22px;
+    color: #22c55e;
+}
+
+.back-btn {
+    background: #22c55e;
+    color: #020617;
+    border: none;
+    height: 28px;         
+    padding: 0 16px;       
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center; /* Vertical centering */
+    gap: 10px;           /* Space between logo and text */
+    padding: 20px;       /* Match your sidebar's current padding */
+}
+
+.brand-logo {
+    width: 40px;         /* Adjust based on your logo design */
+    height: 40px;
+    object-fit: contain;
+}
+
+.sidebar-brand h2 {
+    margin: 0;           /* Remove default heading margin for perfect alignment */
+    font-size: 24px;
+    color: #22c55e;      /* Your primary green */
+}
+
+/* Heading */
+.heading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.insights-header {
+    margin: 20px 0 40px 0;
+    padding: 0 10px;
+    margin-left: 550px;
+}
+
+.neon-greeting {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #4ade80; /* Your neon green */
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.5),
+                 0 0 20px rgba(74, 222, 128, 0.2);
+    margin-bottom: 5px;
+}
+
+.sub-text {
+    color: #9ca3af;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-left: 200px;
+}
+
+/* Container */
+.insights-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 40px;
+}
+
+
+/* Cards */
+.insight-card {
+    background: #0f172a;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #1f2937;
+    transition: 0.3s;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Colors */
+.warning {
+    border-left: 5px solid #f59e0b;
+}
+
+.danger {
+    border-left: 5px solid #ef4444;
+}
+
+.suggestion {
+    border-left: 5px solid #22c55e;
+}
+
+.waste {
+    border-left: 5px solid #6366f1;
+}
+
+/* Modal Background */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hide */
+.hidden {
+    display: none;
+}
+
+/* Modal Box */
+.modal-content {
+    background: #0f172a;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    border: 1px solid #ef4444;
+    text-align: center;
+    position: relative;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* List */
+#wasteList {
+    text-align: left;
+    margin-top: 15px;
+}
+
+#wasteList li {
+    margin-bottom: 8px;
+    color: #ef4444;
+}
+

@@ -113,7 +113,7 @@ This project can be deployed easily using:
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard](assets/screenshots/dashboard.png)
+![Dashboard](GLIMPSE/DashBoard.png)
 
 ### Analytics
 ![Analytics](assets/screenshots/analytics.png)

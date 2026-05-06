@@ -12,6 +12,7 @@ body {
     padding-top: 80px;
     /* font-family: 'Segoe UI', sans-serif; */
     overflow-x: hidden;
+
 }
 
 body::-webkit-scrollbar {
@@ -42,6 +43,7 @@ body::after {
 
     opacity: 0.05;
     z-index: -2;
+    pointer-events: none;
 }
 
 /* BACKGROUND */
@@ -55,6 +57,7 @@ body::after {
         radial-gradient(circle at 50% 90%, rgba(57,255,20,0.1), transparent 50%),
         black;
     z-index: -2;
+    pointer-events: none;
 }
 
 body::before {
@@ -67,7 +70,23 @@ body::before {
     left: 60%;
     filter: blur(180px);
     opacity: 0.2;
-    z-index: -1;
+    /* z-index: -1; */
+    /* pointer-events: none; */
+}
+/* Disable all background click blocking */
+/* .bg,
+body::before,
+body::after,
+.hero::after {
+    pointer-events: none;
+} */
+
+.hero,
+.navbar,
+.hero-left,
+.hero-buttons {
+    position: relative;
+    z-index: 5;
 }
 
 /* CONTAINER */
@@ -242,6 +261,13 @@ button:hover {
     background: linear-gradient(#ffffff, #39FF14);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+
+/* GREEN PART */
+.highlight {
+    color: #39FF14;
+    display: block; /* forces new line like your design */
 }
 
 .hero-left p {
@@ -527,4 +553,194 @@ footer {
     text-align: center;
     padding: 15px;
     color: #aaa;
+}
+
+
+@media (max-width: 768px) {
+    /* Fix Body Padding */
+    body{
+        padding-top: 60px; /* Reduced for mobile */
+    }
+
+    /* Navbar Fix: Prevents logo doubling/overlapping */
+    .navbar {
+        padding: 10px 20px;
+        justify-content: center;
+    }
+
+    .nav-buttons {
+        display: none; /* Hide desktop buttons by default on mobile */
+        position: sticky;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 20px;
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        transition: 0.3s ease;
+    }
+
+    .nav-buttons.active {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: left;
+        gap: 30px;
+    }
+
+    .hero-left {
+        max-width: 100%;
+    }
+
+
+.line1 {
+    display: block;
+    font-size: 49px;
+    font-weight: 600;
+}
+
+.line2 {
+    display: block;
+    font-size: 44px;
+    font-weight: 600;
+}
+
+.line3 {
+    display: block;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+
+
+    .hero-left p {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /* Image wrapper scaling */
+    .image-wrapper {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .image-wrapper img {
+        max-width: 280px; /* Limits size to keep it sharp */
+    }
+
+ .stats {
+        display: flex;
+        flex-direction: row; /* Forces them onto one line */
+        justify-content: space-around; /* Spreads them evenly */
+        align-items: center;
+        width: 100%;
+        padding: 20px 10px;
+        gap: 5px; /* Small gap to prevent crowding */
+    }
+
+    .stat-item {
+        text-align: center;
+        flex: 1; /* Gives each stat equal space */
+    }
+
+    /* Scaling the numbers so they fit on small screens */
+    .stat-item h2 {
+        font-size: 24px; /* Adjust this until it looks crisp on your phone */
+        margin: 0;
+        color: #39FF14;
+    }
+
+    .stat-item p {
+        font-size: 10px; /* Small labels to keep the focus on the numbers */
+        text-transform: uppercase;
+        margin: 0;
+    }
+    /* Features/Cards: Full width with padding */
+    .features {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Statement Section */
+    .intro-tag {
+        font-size: 32px;
+    }
+
+    .intro-desc {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    /* --- SHOWCASE SECTION FIX --- */
+    .showcase {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .glass-panel {
+        width: 100%; /* Spans container width */
+        max-width: 350px; /* Keeps it from getting too wide */
+        margin: 0 auto;
+        transform: none !important; /* Remove 3D tilt for mobile legibility */
+        padding: 20px;
+    }
+
+    .showcase-right {
+        text-align: center;
+    }
+
+    .showcase-heading {
+        font-size: 24px;
+        margin-top: 60px;
+    }
+
+    .showcase-points {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* --- STEPS SECTION (BUTTONS) FIX --- */
+    .steps {
+        flex-direction: column; /* Stacks buttons to prevent overlap */
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .steps div {
+        width: 100%; /* Buttons take full width */
+        max-width: 280px;
+        text-align: center;
+        padding: 15px;
+        font-size: 16px;
+    }
 }

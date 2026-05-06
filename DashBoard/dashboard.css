@@ -539,3 +539,587 @@ tr:hover {
     color: #ef4444;
     transform: scale(1.2);
 }
+
+/* 1. Hide mobile elements by default (Desktop view) */
+.mobile-nav, .mobile-fab {
+    display: none;
+}
+
+.sidebar-close {
+    display: none;
+}
+
+.mobile-menu-footer{
+    display: none;
+}
+
+/* 2. Mobile-Only Styles (Applies when screen is smaller than 768px) */
+@media (max-width: 768px) {
+
+    .cards {
+        display: flex !important; /* Force flex instead of grid */
+        flex-wrap: nowrap !important; /* Prevent wrapping to second line */
+        overflow-x: auto; /* Allow horizontal swipe if they don't fit */
+        gap: 12px;
+        padding-bottom: 10px;
+        scrollbar-width: none; /* Hide scrollbar for Chrome/Safari 
+        below */
+        margin-left: 10px;
+    }
+
+    .cards::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for clean look */
+    }
+
+    .card {
+        flex: 0 0 120px; /* Each card stays exactly 140px wide */
+        min-width: 70px;
+        flex-direction: column; /* Stack icon and text vertically */
+        align-items: center;
+        text-align: center;
+    }
+    /* Hide desktop-specific layouts */
+    .sidebar {
+        position: fixed;
+        left: -100%; /* Hidden off-screen */
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: 9999;
+        transition: 0.3s;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between; /* Pushes the footer to the bottom */
+        height: 100vh;
+        padding: 20px;
+    }
+
+    .sidebar.mobile-open {
+        left: 0; /* Slides in when clicked */
+    }
+
+    .topbar {
+        display: none !important; /* Hides desktop search and buttons */
+    }
+
+    .mobile-menu-footer {
+        display: flex !important;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 20px;
+        border-top: 1px solid #1f2937;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    /* Modern styling for Analytics & Insights */
+    .mobile-menu-footer .outline-btn {
+        background: rgba(34, 197, 94, 0.05);
+        border: 1px solid #22c55e;
+        color: #22c55e;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 13px;
+        width: 100%; /* Fixes the width issue in your screenshot */
+        cursor: pointer;
+    }
+
+    /* Modern styling for Logout */
+    .mobile-menu-footer .danger-btn {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid #ef4444;
+        color: #ef4444;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 13px;
+        width: 100%;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+
+    /* Hover effects for mobile touch */
+    .mobile-menu-footer button:active {
+        transform: scale(0.98);
+        filter: brightness(1.2);
+    }
+
+    /* Show mobile-only elements */
+    .mobile-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background: #0b0f14;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        z-index: 1001;
+        border-bottom: 1px solid #1f2937;
+    }
+
+    .brand-green { color: #22c55e; font-weight: bold; font-size: 1.5rem; }
+
+    .mobile-fab {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #22c55e;
+        color: #0b0f14;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-weight: bold;
+        z-index: 999;
+        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+    }
+
+    /* TRANSFORM TABLE INTO CARDS (As seen in DASH.png) */
+    .table-section { background: transparent; border: none; }
+    
+    table, thead, tbody, th, td, tr { 
+        display: block; 
+        width: 420px;
+        margin-left: 2px;
+    }
+
+    thead { display: none; } /* Hide table headers */
+
+    tr {
+        background: #111827;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 12px;
+        position: relative;
+        height: auto;
+    }
+
+    /* Style the Status (Active/Expired) */
+    td:nth-child(1) {
+        background: rgba(34, 197, 94, 0.2);
+        color: #4ade80;
+        display: inline-block;
+        width: auto;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    /* Style the Product Name */
+    td:nth-child(2) {
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Style the Date and Days Left labels */
+    td:nth-child(3), td:nth-child(4) {
+        display: inline-block;
+        width: 45%;
+        font-size: 13px;
+        color: #9ca3af;
+    }
+    
+    /* Action buttons to the right */
+    td:last-child {
+        display: block !important;
+        position: absolute !important;
+        right: 15px; /* Spacing from right edge */
+        top: 50% !important; /* Move to vertical center */
+        transform: translateY(-50%) !important; /* Offset its own height to be perfectly centered */
+        width: auto !important;
+    }
+
+    /* The container inside that td (from your HTML) */
+    .action-buttons {
+        display: flex;
+        flex-direction: row; /* Keep buttons side-by-side */
+        gap: 8px;
+    }
+
+    /* Make buttons slightly smaller for mobile if needed */
+    .action-buttons button {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* --- RESPONSIVE MOBILE OVERRIDES --- */
+@media (max-width: 768px) {
+    /* Hide Desktop Sidebar and Topbar */
+    .sidebar, .topbar {
+        display: none !important;
+    }
+
+    /* Reset Layout for Mobile */
+    .layout {
+        display: block;
+    }
+
+    .main {
+        padding: 10px;
+    }
+
+    /* Transform Table into Cards */
+    .table-section {
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block; 
+    }
+
+    /* Hide Table Header */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    /* Style each row as a Card (Matches your DASH.png) */
+    tr {
+        background: #111827;
+        margin-bottom: 15px;
+        border-radius: 15px;
+        padding: 15px;
+        height: auto; /* Override the desktop height */
+        position: relative;
+    }
+
+    /* Positioning the product name and status */
+    td:nth-of-type(1) { order: 1; font-weight: bold; color: #4ade80; } /* Status */
+    td:nth-of-type(2) { order: 2; font-size: 1.2rem; font-weight: 800; } /* Name */
+    
+    /* Layout for dates and days left */
+    td:nth-of-type(3), td:nth-of-type(4) {
+        display: inline-block;
+        width: 45%;
+        color: #9ca3af;
+        font-size: 13px;
+    }
+
+    /* Action Buttons Positioned at the right */
+    td:last-child {
+        position: absolute;
+        right: 10px;
+        top: 20px;
+    }
+
+    /* Adjusting Stats Cards for Mobile Grid */
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .card img {
+        width: 65px;
+    }
+
+    .mobile-logo {
+        display: flex;
+        align-items: center; 
+        gap: 8px;         
+    }
+
+
+    .logo {
+        width: 30px;         
+        height: 30px;
+        object-fit: contain;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    /* The Sidebar as a Hamburger Menu */
+    .sidebar {
+        position: fixed;
+        left: -100%; /* Hidden by default */
+        top: 0;
+        width: 280px;
+        height: 100vh;
+        background: #0e141b;
+        z-index: 9999;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex !important; /* Force flex to stack items */
+        flex-direction: column;
+        padding: 30px 20px;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+    }
+
+    .sidebar.mobile-open {
+        left: 0; /* Slide in */
+    }
+
+    /* Add a close button or header inside sidebar for mobile */
+    .sidebar::before {
+        content: "Menu";
+        font-size: 1.2rem;
+        color: #9ca3af;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    /* Style the Navigation List */
+    .sidebar ul {
+        margin-bottom: auto; /* Pushes the next items to the bottom */
+    }
+
+    .sidebar-close {
+        display: block; /* Hidden on desktop via default CSS */
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 32px;
+        color: #9ca3af;
+        cursor: pointer;
+        line-height: 1;
+        transition: 0.2s;
+    }
+
+    .sidebar-close:hover {
+        color: #ef4444; /* Turns red on hover/tap */
+    }
+
+    /* Hide the close button on desktop */
+    @media (min-width: 769px) {
+        .sidebar-close {
+            display: none;
+        }
+    }
+
+    /* Style the Extra Actions (Analytics, Insights, Logout) 
+       Add these classes to your sidebar in HTML if you want them specifically for mobile drawer */
+    .mobile-menu-footer {
+        border-top: 1px solid #1f2937;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Keep the Notification Bell visible on top right */
+    .mobile-actions .icon-btn {
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        color: #4ade80;
+        cursor: pointer;
+    }
+
+    .notification-panel {
+        top: 60px; /* Adjust to stay right below the mobile-nav */
+        right: 10px;
+        width: calc(100% - 20px); /* Fill most of the width on small phones */
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Make the modal overlay blur the background nicely */
+    .modal-overlay {
+        padding: 20px;
+        backdrop-filter: blur(8px);
+    }
+
+    /* Style the Modal Box as a centered card */
+    .modal-content.glass {
+        width: 100% !important;
+        max-width: 320px !important;
+        padding: 25px !important;
+        border-radius: 20px !important;
+        background: rgba(17, 24, 39, 0.95) !important;
+        border: 1px solid #4ade80 !important;
+    }
+
+    .modal-content h3 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    /* Style the inputs to be big and tappable */
+    .modal-content input {
+        width: 100% !important;
+        box-sizing: border-box; /* Prevents overflow */
+        padding: 12px !important;
+        margin: 10px 0 !important;
+        font-size: 16px; /* Prevents iOS auto-zoom on focus */
+    }
+
+    /* Center the Add/Update button */
+    .modal-content .add-btn {
+        width: 100% !important;
+        margin: 15px 0 0 0 !important;
+        padding: 15px !important;
+        border-radius: 12px !important;
+    }
+}
+
+.error-msg {
+    color: #ef4444; /* Danger Red */
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    display: none; /* Hidden by default */
+    text-shadow: 0 0 5px rgba(239, 68, 68, 0.3);
+}
+
+/* For Mobile specifically */
+@media (max-width: 768px) {
+    .error-msg {
+        font-size: 11px;
+        background: rgba(239, 68, 68, 0.1);
+        padding: 8px;
+        border-radius: 6px;
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    /* Transform Panel into a Mobile Overlay */
+    .notification-panel {
+        position: fixed !important;
+        top: auto !important; /* Reset desktop top */
+        bottom: 0 !important; /* Anchor to bottom */
+        right: 0 !important;
+        width: 100% !important;
+        height: 70vh !important; /* Take up 70% of screen height */
+        border-radius: 25px 25px 0 0 !important; /* Rounded top corners */
+        background: #0f172a !important;
+        z-index: 10000 !important;
+        padding: 20px !important;
+        box-shadow: 0 -10px 40px rgba(0,0,0,0.8) !important;
+        transform: translateY(0);
+        transition: transform 0.3s ease-out;
+    }
+
+    /* Animation when hidden */
+    .notification-panel.hidden {
+        display: none !important; /* Keep your logic, but could use translateY(100%) for animation */
+    }
+
+    /* Make the list scrollable and larger for thumbs */
+    .notif-list {
+        max-height: 80% !important;
+        overflow-y: auto;
+    }
+
+    .notif-item {
+        padding: 15px 5px !important; /* More space to tap */
+        font-size: 15px !important;
+    }
+
+    /* Header styling for mobile */
+    .notif-header {
+        padding-bottom: 20px !important;
+    }
+
+    .notif-header h3 {
+        font-size: 18px !important;
+        color: #4ade80;
+    }
+
+    /* Footer styling for mobile */
+    .notif-footer {
+        padding: 15px 0 !important;
+        border-top: 1px solid #1f2937;
+        background: #0f172a;
+    }
+
+    /* Bell Positioning */
+    .mobile-bell-wrapper {
+        position: relative;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 20px;
+    }
+
+    /* The Red Notification Dot */
+    .red-dot {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 10px;
+        height: 10px;
+        background: #ef4444;
+        border-radius: 50%;
+        border: 2px solid #0b0f14;
+        box-shadow: 0 0 5px #ef4444;
+    }
+
+    /* Ensure the logo unit stays centered by making bell/menu icons same width */
+    .menu-icon, .mobile-bell-wrapper {
+        width: 40px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Style for the search container inside the list */
+    .sidebar-search-item {
+        padding: 12px;
+        margin-top: 10px;
+        background: transparent !important; /* Prevent hover green effect */
+        cursor: default !important;
+    }
+
+    /* The actual input field */
+    #mobileSearch {
+        width: 145px;
+        background: #0b0f14;
+        border: 1px solid #1f2937;
+        border-radius: 8px;
+        padding: 10px 15px;
+        color: white;
+        font-size: 14px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    #mobileSearch:focus {
+        border-color: #22c55e;
+        box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+    }
+
+    .sidebar-search-item:hover {
+        background: transparent !important;
+        color: inherit !important;
+    }
+}
+
+/* Hide mobile search on desktop */
+@media (min-width: 769px) {
+    .sidebar-search-item {
+        display: none;
+    }
+}
+
+/* Ensure the panel is visible on top of other elements */
+#notificationPanel {
+    z-index: 2001; 
+}

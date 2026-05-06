@@ -121,3 +121,104 @@ canvas {
     margin-top: 20px;
     color: #6b7280;
 }
+
+/* Mobile Responsive Overrides */
+@media (max-width: 768px) {
+    /* Navbar Tweaks */
+    .navbar {
+        padding: 10px 15px;
+    }
+    
+    .sidebar-brand h2 {
+        font-size: 20px;
+    }
+
+    .heading {
+        font-size: 24px;
+        font-weight: 800;
+        color: #39FF14;
+        text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+    }
+
+
+.analytics-container {
+        width: 100vw;
+        overflow-x: auto;
+        padding: 10px 0;
+        display: block !important;
+        scrollbar-width: none;
+    }
+    
+    .analytics-container::-webkit-scrollbar { display: none; }
+
+    .cards {
+        display: flex !important;
+        flex-direction: row !important; /* Force horizontal */
+        flex-wrap: nowrap !important;   /* No wrapping to second line */
+        gap: 15px !important;
+        padding: 0 20px !important;
+        width: max-content !important; /* Allows it to be wider than the phone */
+    }
+
+    .card {
+        width: 160px !important; /* Smaller cards to see 2+ on screen */
+        flex-shrink: 0 !important;
+        padding: 15px !important;
+    }
+
+    /* 4. Chart Stacking Logic */
+    .charts {
+        display: flex !important;
+        flex-direction: column !important; /* Stacked vertically */
+        align-items: center !important;
+        gap: 40px !important;
+        margin-top: 30px !important;
+        width: 450px !important;
+    }
+
+    .chart-container {
+        width: 90% !important;
+        height: 300px !important; /* Fixed height is key */
+        position: relative;
+    }
+
+    .card img {
+        width: 40px;
+    }
+
+    .card h2 {
+        font-size: 22px;
+    }
+
+    .card p {
+        font-size: 10px;
+    }
+
+    /* Stack Charts Vertically */
+   .charts {
+        flex-direction: column !important; 
+        align-items: center;
+        gap: 60px; /* Space between doughnut and bar chart */
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    canvas {
+       width: 320px !important;  /* Match width and height */
+        height: 320px !important; /* This prevents the 'oval' stretching */
+        max-width: 90vw !important;
+        max-height: 90vw !important;
+    }
+
+    .cards-wrapper {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+    
+    .footer {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+}

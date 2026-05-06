@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scanify Analytics</title>
     <link rel="stylesheet" href="ana.css">
 </head>
@@ -22,42 +22,39 @@
     <!-- Heading -->
     <h1 class="heading">Analytics Dashboard</h1>
 
-    <!-- Cards -->
-    <div class="cards">
-
-        <div class="card">
-            <img src="../assets/totalana.png">
-            <div>
-                <h2 id="total">0</h2>
-                <p>TOTAL PRODUCTS</p>
+    <div class="analytics-container">
+        <div class="cards">
+            <div class="card">
+                <img src="../assets/totalana.png">
+                <div>
+                    <h2 id="total">0</h2>
+                    <p>TOTAL PRODUCTS</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/expiredana.png">
+                <div>
+                    <h2 id="expired">0</h2>
+                    <p>EXPIRED</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/expiringana.png">
+                <div>
+                    <h2 id="soon">0</h2>
+                    <p>EXPIRING SOON</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/activeana.png">
+                <div>
+                    <h2 id="active">0</h2>
+                    <p>ACTIVE</p>
+                </div>
             </div>
         </div>
-
-        <div class="card">
-            <img src="../assets/expiredana.png">
-            <div>
-                <h2 id="expired">0</h2>
-                <p>EXPIRED</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="../assets/expiringana.png">
-            <div>
-                <h2 id="soon">0</h2>
-                <p>EXPIRING SOON</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="../assets/activeana.png">
-            <div>
-                <h2 id="active">0</h2>
-                <p>ACTIVE</p>
-            </div>
-        </div>
-
     </div>
+
 
     <!-- Charts -->
     <div class="charts">

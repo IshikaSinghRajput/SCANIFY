@@ -120,3 +120,4 @@ document.getElementById("wasteText").textContent =
 function goBack() {
     window.location.href = "../DashBoard/dashboard.html";
 }
+

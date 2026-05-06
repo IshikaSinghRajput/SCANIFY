@@ -3,7 +3,6 @@ function goBack() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-
     const currentUser = localStorage.getItem("loggedInUser");
 
     if (!currentUser) {
@@ -39,53 +38,59 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function renderCharts(expired, soon, active) {
-
+    // --- DOUGHNUT CHART ---
     new Chart(document.getElementById("pieChart"), {
-        type: "pie",
+        type: "doughnut",
         data: {
-            labels: ["Expired", "Active", "Expiring Soon"],
+            labels: ["Expired", "Active", "Soon"],
             datasets: [{
                 data: [expired, active, soon],
-                backgroundColor: ["#0f172a", "#39FF14", "#111827"],
-                borderColor: "#39FF14",
-                borderWidth: 2
+                backgroundColor: ["#1a2e1a", "#39FF14", "#22c55e"],
+                borderColor: "#020617",
+                borderWidth: 2,
             }]
         },
         options: {
+            // Changed from 80% to 50% or 60% to make the ring thicker
+            cutout: '60%', 
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    labels: { 
-                        color: "#22c55e",
-                        font: { size: 14, weight: 'bold' },
-                        padding: 20
-                    }
+                    position: 'top',
+                    labels: { color: "#39FF14", usePointStyle: true, padding: 25 }
                 }
             }
         }
     });
 
+    // --- BAR CHART ---
     new Chart(document.getElementById("barChart"), {
         type: "bar",
         data: {
             labels: ["Expired", "Soon", "Active"],
             datasets: [{
                 data: [expired, soon, active],
-                backgroundColor: "#22c55e"
+                backgroundColor: "#39FF14",
+                borderRadius: 5,
+                // These two properties make the bars very thick
+                barPercentage: 0.9, 
+                categoryPercentage: 0.8 
             }]
         },
         options: {
+            maintainAspectRatio: false,
             scales: {
-                y: {
+                y: { 
                     beginAtZero: true,
-                    ticks: { color: "#22c55e" }
+                    grid: { color: "rgba(57, 255, 20, 0.1)" },
+                    ticks: { color: "#39FF14" } 
                 },
-                x: {
-                    ticks: { color: "#22c55e" }
+                x: { 
+                    grid: { display: false },
+                    ticks: { color: "#39FF14", font: { weight: 'bold' } } 
                 }
             },
-            plugins: {
-                legend: { display: false }
-            }
+            plugins: { legend: { display: false } }
         }
     });
 }

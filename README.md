@@ -4,6 +4,8 @@ Scanify is a smart inventory management web application that helps users track p
 
 ---
 
+### The Project is Live on https://scanifybyishika.netlify.app/
+
 ## 📌 Features
 
 ### 🏠 Dashboard

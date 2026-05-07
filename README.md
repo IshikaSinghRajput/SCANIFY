@@ -1,6 +1,6 @@
-# 🚀 Scanify – Smart Expiry Tracking Web App
+# 🚀 Trackify – Smart Expiry Tracking Web App
 
-Scanify is a smart inventory management web application that helps users track product expiry dates, reduce waste, and stay organized using real-time analytics and notifications.
+Trackify is a smart inventory management web application that helps users track product expiry dates, reduce waste, and stay organized using real-time analytics and notifications.
 
 ---
 
@@ -50,7 +50,7 @@ Scanify is a smart inventory management web application that helps users track p
 ## 📂 Project Structure
 
 ```
-Scanify/
+Trackify/
 │
 ├── Dashboard/
 │   ├── dashboard.html

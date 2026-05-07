@@ -19,7 +19,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         return;
     }
 
-    // 🔥 IMPORTANT (dashboard dependency)
     localStorage.setItem("loggedInUser", username);
 
     window.location.href = "../DashBoard/dashboard.html";

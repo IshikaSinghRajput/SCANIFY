@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // ✅ IMPORTANT (your dashboard depends on this)
             localStorage.setItem("loggedInUser", username);
 
             window.location.href = "../DashBoard/dashboard.html";

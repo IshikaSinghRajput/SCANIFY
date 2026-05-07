@@ -22,7 +22,7 @@ let notifiedProducts = new Set();
 window.addEventListener("DOMContentLoaded", () => {
     // 1. Check for New User Welcome
     if (notificationHistory.length === 0) {
-        const welcomeMsg = `Welcome to Scanify, ${user}! Let's start saving products.`;
+        const welcomeMsg = `Welcome to Trackify, ${user}! Let's start saving products.`;
         saveNotification(welcomeMsg);
         
         // Show red dot for the first time
@@ -47,80 +47,6 @@ function saveNotification(message) {
     localStorage.setItem(notifKey, JSON.stringify(notificationHistory));
 }
 
-// =============================
-// 📊 Display Products
-// =============================
-// function displayProducts() {
-//     const table = document.getElementById("productTable");
-//     const searchInput = document.getElementById("search");
-//     const search = searchInput ? searchInput.value.toLowerCase() : "";
-
-//     table.innerHTML = "";
-//     let total = 0, soon = 0, expired = 0;
-
-//     // --- NEW EMPTY STATE CHECK ---
-//     if (userData.products.length === 0) {
-//         table.innerHTML = `
-//             <tr>
-//                 <td colspan="5" style="text-align: center; color: #9ca3af; padding: 40px; font-style: italic;">
-//                     You have not added any products.
-//                 </div>
-//                 </td>
-//             </tr>`;
-        
-//         // Reset counts to 0
-//         document.getElementById("totalCount").textContent = 0;
-//         document.getElementById("soonCount").textContent = 0;
-//         document.getElementById("expiredCount").textContent = 0;
-//         return; 
-//     }
-//     // ------------------------------
-
-//     userData.products.forEach((p, index) => {
-//         const today = new Date();
-//         const expiry = new Date(p.expiry);
-//         const daysLeft = Math.ceil((expiry - today) / (1000 * 60 * 60 * 24));
-
-//         total++;
-
-//         let status = "Active";
-//         if (daysLeft < 0) {
-//             status = "Expired";
-//             expired++;
-//         } else if (daysLeft <= 5) {
-//             status = "Expiring Soon";
-//             soon++;
-//         }
-
-//         if (
-//             (currentFilter === "active" && daysLeft < 0) ||
-//             (currentFilter === "expired" && daysLeft >= 0) ||
-//             (currentFilter === "soon" && !(daysLeft <= 5 && daysLeft >= 0))
-//         ) return;
-
-//         if (!p.name.toLowerCase().includes(search)) return;
-
-//         table.innerHTML += `
-//         <tr>
-//             <td>${status}</td>
-//             <td>${p.name}</td>
-//             <td>${p.expiry}</td>
-//             <td>${daysLeft}</td>
-//             <td>
-//                 <div class="action-buttons">
-//                     <button class="edit-btn" onclick="editProduct(${index})">✏️</button>
-//                     <button class="delete-btn" onclick="deleteProduct(${index})">🗑</button>
-//                 </div>
-//             </td>
-//         </tr>`;
-
-//         handleAlerts(p, daysLeft);
-//     });
-
-//     document.getElementById("totalCount").textContent = total;
-//     document.getElementById("soonCount").textContent = soon;
-//     document.getElementById("expiredCount").textContent = expired;
-// }
 
 // Add an event listener to the search input so it filters as you type
 document.getElementById("search").addEventListener("input", displayProducts);
@@ -221,26 +147,7 @@ function handleAlerts(p, daysLeft) {
 // =============================
 // 🔔 In-App Notification Logic
 // =============================
-// function showNotification(message) {
-//     const container = document.getElementById("notificationContainer");
-    
-//     // Always save to the history list
-//     saveNotification(message);
 
-//     // Only show visual popups and red dot AFTER initial load is stable
-//     if (initialLoadComplete) {
-//         if (container) {
-//             const notif = document.createElement("div");
-//             notif.className = "notification";
-//             notif.textContent = message;
-//             container.appendChild(notif);
-//             setTimeout(() => notif.remove(), 3000);
-//         }
-
-//         const dot = document.getElementById("notif-dot");
-//         if (dot) dot.style.display = "block";
-//     }
-// }
 
 function showNotification(message) {
     saveNotification(message);
@@ -255,34 +162,6 @@ function showNotification(message) {
         if (mobileDot) mobileDot.style.display = "block";
     }
 }
-
-// function toggleNotifications() {
-//     const panel = document.getElementById("notificationPanel");
-//     const dot = document.getElementById("notif-dot");
-    
-//     panel.classList.toggle("hidden");
-
-//     if (!panel.classList.contains("hidden")) {
-//         if (dot) dot.style.display = "none";
-//         displayNotificationHistory();
-//     }
-// }
-
-// function toggleNotifications() {
-//     const panel = document.getElementById("notificationPanel");
-//     panel.classList.toggle("hidden");
-
-//     if (!panel.classList.contains("hidden")) {
-//         displayNotificationHistory();
-        
-//         // Mobile Specific: Prevent background body from scrolling when panel is open
-//         if (window.innerWidth <= 768) {
-//             document.body.style.overflow = "hidden";
-//         }
-//     } else {
-//         document.body.style.overflow = "auto";
-//     }
-// }
 
 // Update toggle to hide the dot when opened
 function toggleNotifications() {
@@ -341,30 +220,10 @@ function saveData() {
     displayProducts();
 }
 
-// function addProduct() {
-//     const name = document.getElementById("productName").value;
-//     const date = document.getElementById("expiryDate").value;
-//     if (!name || !date) { alert("Fill all fields"); return; }
-//     userData.products.push({ name, expiry: date });
-//     saveData();
-//     closeModal();
-//     document.getElementById("productName").value = "";
-//     document.getElementById("expiryDate").value = "";
-// }
-
 function deleteProduct(index) {
     userData.products.splice(index, 1);
     saveData();
 }
-
-// function editProduct(index) {
-//     const newName = prompt("Enter new name:", userData.products[index].name);
-//     const newDate = prompt("Enter new date:", userData.products[index].expiry);
-//     if (newName && newDate) {
-//         userData.products[index] = { name: newName, expiry: newDate };
-//         saveData();
-//     }
-// }
 
 // Open Edit Modal and fill data
 function editProduct(index) {

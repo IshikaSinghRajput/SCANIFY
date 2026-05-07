@@ -136,9 +136,23 @@ function displayProducts() {
     let total = 0, soon = 0, expired = 0;
 
     if (userData.products.length === 0) {
-        table.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #9ca3af; padding: 40px;">No products found.</td></tr>`;
-        return; 
-    }
+    table.innerHTML = `
+        <tr class="empty-row">
+            <td colspan="5">
+                <div class="empty-state">
+                    <h3>No products found</h3>
+                    <p>Add your first product to start tracking expiry dates.</p>
+                </div>
+            </td>
+        </tr>
+    `;
+
+    document.getElementById("totalCount").textContent = 0;
+    document.getElementById("soonCount").textContent = 0;
+    document.getElementById("expiredCount").textContent = 0;
+
+    return;
+}
 
     userData.products.forEach((p, index) => {
         // 2. Filter by Search Term First

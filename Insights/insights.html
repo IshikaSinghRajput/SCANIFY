@@ -11,20 +11,40 @@
 
     <!-- Navbar -->
     <div class="navbar">
+
         <div class="sidebar-brand">
             <h2>Scanify</h2>
-            <img src="../assets/logo.png" alt="Scanify Logo" class="brand-logo">
 
+            <img
+                src="../assets/logo.png"
+                alt="Scanify Logo"
+                class="brand-logo"
+            >
         </div>
-        <button class="back-btn" onclick="goBack()">Back</button>
+
+        <button class="back-btn" onclick="goBack()">
+            Back
+        </button>
+
     </div>
 
+    <!-- Heading -->
     <h1 class="heading">Smart Insights</h1>
+
+    <!-- Greeting Section -->
     <div class="insights-header">
-        <h1 id="welcomeGreeting" class="neon-greeting"></h1>
-        <p class="sub-text">Here's a deep dive into your product savings and waste analytics.</p>
+
+        <!-- FIXED: ONLY ONE GREETING -->
+        <div id="welcomeGreeting" class="greeting-banner"></div>
+
+        <p class="sub-text">
+            Here's a deep dive into your product savings
+            and waste analytics.
+        </p>
+
     </div>
 
+    <!-- Insights Cards -->
     <div class="insights-container">
 
         <div class="insight-card warning">
@@ -42,18 +62,27 @@
             <p id="suggestText">Loading...</p>
         </div>
 
-        <div class="insight-card waste" onclick="openWasteModal()">
+        <div
+            class="insight-card waste"
+            onclick="openWasteModal()"
+        >
             <h3>📉 Waste Report</h3>
             <p id="wasteText">Loading...</p>
         </div>
 
     </div>
 
-    <!-- Waste Details Modal -->
+    <!-- Waste Modal -->
     <div id="wasteModal" class="modal hidden">
+
         <div class="modal-content">
 
-            <span class="close-btn" onclick="closeWasteModal()">✖</span>
+            <span
+                class="close-btn"
+                onclick="closeWasteModal()"
+            >
+                ✖
+            </span>
 
             <h2>📉 Waste Details</h2>
 
@@ -62,9 +91,10 @@
             <ul id="wasteList"></ul>
 
         </div>
+
     </div>
 
     <script src="insights.js"></script>
-</body>
 
+</body>
 </html>

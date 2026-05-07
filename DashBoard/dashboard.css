@@ -553,31 +553,139 @@ tr:hover {
     display: none;
 }
 
+/* =========================================
+   EMPTY STATE FIX
+========================================= */
+
+/* .empty-row {
+    background: transparent !important;
+    border: none !important;
+}
+
+.empty-row:hover {
+    background: transparent !important;
+} */
+
+.empty-row td {
+    width: 100%;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.empty-state {
+    width: 100%;
+    text-align: center;
+    padding: 70px 20px;
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 20px;
+    margin-top: 100px;
+}
+
+.empty-state h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.error-msg {
+    color: #ef4444; /* Danger Red */
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    display: none; /* Hidden by default */
+    text-shadow: 0 0 5px rgba(239, 68, 68, 0.3);
+}
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Ensure the panel is visible on top of other elements */
+#notificationPanel {
+    z-index: 2001; 
+}
+
+
+
 /* 2. Mobile-Only Styles (Applies when screen is smaller than 768px) */
 @media (max-width: 768px) {
 
-    .cards {
-        display: flex !important; /* Force flex instead of grid */
-        flex-wrap: nowrap !important; /* Prevent wrapping to second line */
-        overflow-x: auto; /* Allow horizontal swipe if they don't fit */
-        gap: 12px;
-        padding-bottom: 10px;
-        scrollbar-width: none; /* Hide scrollbar for Chrome/Safari 
-        below */
-        margin-left: 10px;
+    *, *:before, *:after {
+        box-sizing: border-box !important;
     }
 
-    .cards::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for clean look */
+    /* html, body {
+        width: 100% !important;
+        overflow-x: hidden !important; 
+        margin: 0;
+        padding: 0;
+    } */
+
+    .layout {
+        display: block !important; 
+        width: 100% !important;
     }
 
+   .cards {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important; /* This centers the 3rd box */
+        gap: 12px !important;
+        padding: 15px !important;
+        width: 100% !important;
+        /* box-sizing: border-box !important; */
+  
+    }
+
+    /* 2. Set the width so two fit on one line, and the 3rd drops down */
     .card {
-        flex: 0 0 120px; /* Each card stays exactly 140px wide */
-        min-width: 70px;
-        flex-direction: column; /* Stack icon and text vertically */
-        align-items: center;
-        text-align: center;
+        /* (100% / 2) minus half the gap to fit exactly two per row */
+        flex: 0 0 calc(50% - 6px) !important; 
+        max-width: calc(50% - 6px) !important;
+        
+        background: #111827 !important;
+        border: 1px solid #1f2937 !important;
+        border-radius: 16px !important;
+        padding: 20px 10px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
     }
+
+    /* 3. Adjust internals for the smaller size */
+    .card img {
+        width: 65px !important;
+        height: 65px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .card p {
+        font-size: 12px !important;
+        color: #9ca3af !important;
+        margin: 0 !important;
+        line-height: 1.2;
+    }
+
+    .card h2 {
+        font-size: 18px !important;
+        margin: 5px 0 0 0 !important;
+    }
+
+
     /* Hide desktop-specific layouts */
     .sidebar {
         position: fixed;
@@ -816,7 +924,7 @@ tr:hover {
     }
 
     /* Adjusting Stats Cards for Mobile Grid */
-    .cards {
+    /* .cards {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
@@ -824,16 +932,22 @@ tr:hover {
 
     .card {
         padding: 10px;
-    }
+    } */
 
-    .card img {
+    /* .card img {
         width: 65px;
-    }
+    } */
 
     .mobile-logo {
+       position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        
         display: flex;
-        align-items: center; 
-        gap: 8px;         
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap; /* Prevents text from wrapping */       
     }
 
 
@@ -946,6 +1060,7 @@ tr:hover {
         border-radius: 20px !important;
         background: rgba(17, 24, 39, 0.95) !important;
         border: 1px solid #4ade80 !important;
+        /* margin-right: 35px; */
     }
 
     .modal-content h3 {
@@ -971,15 +1086,6 @@ tr:hover {
     }
 }
 
-.error-msg {
-    color: #ef4444; /* Danger Red */
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
-    display: none; /* Hidden by default */
-    text-shadow: 0 0 5px rgba(239, 68, 68, 0.3);
-}
 
 /* For Mobile specifically */
 @media (max-width: 768px) {
@@ -989,14 +1095,6 @@ tr:hover {
         padding: 8px;
         border-radius: 6px;
     }
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
 }
 
 @media (max-width: 768px) {
@@ -1119,7 +1217,47 @@ tr:hover {
     }
 }
 
-/* Ensure the panel is visible on top of other elements */
-#notificationPanel {
-    z-index: 2001; 
+
+/* =========================================
+   MOBILE FIX
+========================================= */
+@media (max-width: 768px) {
+    /* ... existing mobile code ... */
+
+    /* FIX: Position 'No products found' box below topbar */
+    .empty-state {
+       background: transparent !important; /* Removes the dark box background */
+        border: none !important;            /* Removes the border */
+        box-shadow: none !important;        /* Removes any shadow */
+        margin-top: 120px !important;        /* Positions it below topbar */
+        padding: 20px !important;           /* Normal padding for text */
+        width: 85% !important;
+        margin-left: 30px;
+    }
+
+    /* FIX: Remove green color/hover from the empty message box */
+    .empty-row, .empty-row:hover {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .empty-row td {
+        background: transparent !important;
+        padding: 0 !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    /* Ensure table rows don't force a huge width on mobile */
+    table, tbody, tr {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    /* Remove any lingering green tint from status for the empty state only */
+    .empty-state h3 {
+        color: white !important;
+    }
 }
+

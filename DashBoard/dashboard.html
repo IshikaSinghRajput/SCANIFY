@@ -3,6 +3,9 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Trackify Dashboard</title>
     <link rel="icon" type="image/png" href="../assets/logo.png">
     <link rel="stylesheet" href="dashh.css">
@@ -149,7 +152,8 @@
 
             <div class="form-group">
                 <label>Expiry Date</label>
-                <input type="date" id="expiryDate">
+                <input type="date" id="expiryDate" required>
+                <p id="dateError" class="date-error"></p>
             </div>
 
             <button class="add-btn" onclick="addProduct()">Add</button>

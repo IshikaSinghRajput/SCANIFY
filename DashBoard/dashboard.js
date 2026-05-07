@@ -98,6 +98,7 @@ function displayProducts() {
             status = "Expiring Soon";
             soon++;
         }
+        handleAlerts(p, daysLeft);
 
         // 3. Filter by Sidebar Category (All/Active/Soon/Expired)
         if (
@@ -152,7 +153,6 @@ function handleAlerts(p, daysLeft) {
 function showNotification(message) {
     saveNotification(message);
 
-    if (initialLoadComplete) {
         // Desktop dot
         const dot = document.getElementById("notif-dot");
         if (dot) dot.style.display = "block";
@@ -161,7 +161,7 @@ function showNotification(message) {
         const mobileDot = document.getElementById("notif-dot-mobile");
         if (mobileDot) mobileDot.style.display = "block";
     }
-}
+
 
 // Update toggle to hide the dot when opened
 function toggleNotifications() {
@@ -286,6 +286,36 @@ function addProduct() {
     document.getElementById("expiryDate").value = "";
 }
 
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    const expiryInput = document.getElementById("expiryDate");
+    const dateError = document.getElementById("dateError");
+
+    // Today's date
+    const today = new Date().toISOString().split("T")[0];
+
+    // Disable past dates in calendar
+    expiryInput.min = today;
+
+    // Validate typed dates
+    expiryInput.addEventListener("blur", () => {
+
+        if (expiryInput.value && expiryInput.value < today) {
+
+            dateError.textContent = "Past dates are not allowed";
+            expiryInput.value = "";
+
+        } else {
+
+            dateError.textContent = "";
+
+        }
+
+    });
+
+});
+
 // Update your openModal function to clear previous errors
 function openModal() {
     document.getElementById("addError").style.display = "none";
@@ -333,3 +363,28 @@ function syncSearch(mobileInput) {
     // 3. Trigger the display refresh
     displayProducts();
 }
+
+window.onload = function () {
+
+    // Product name input
+    const productInput = document.getElementById("productName");
+
+    if (productInput) {
+        productInput.value = "";
+    }
+
+    // Expiry date input
+    const expiryInput = document.getElementById("expiryDate");
+
+    if (expiryInput) {
+        expiryInput.value = "";
+    }
+
+    // Clear error message
+    const dateError = document.getElementById("dateError");
+
+    if (dateError) {
+        dateError.textContent = "";
+    }
+
+};
